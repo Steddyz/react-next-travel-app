@@ -1,3 +1,4 @@
+import { PEOPLE_URL } from "@/constants";
 import Image from "next/image";
 import React from "react";
 
@@ -28,6 +29,21 @@ const CampSite = ({
             <p className="regulat-14 text-white">{subtitle}</p>
           </div>
         </div>
+        <div className="flexCenter gap-6">
+          <span className="flexCenter -space-x-4 overflow-hidden">
+            {PEOPLE_URL.map((url) => (
+              <Image
+                className="inline-block h-10 w-10 rounded-full"
+                src={url}
+                key={url}
+                alt="person"
+                width={52}
+                height={52}
+              />
+            ))}
+          </span>
+          <p className="bold-16 md:bold-20 text-white">{peopleJoined}</p>
+        </div>
       </div>
     </div>
   );
@@ -44,11 +60,32 @@ const Camp = () => {
           peopleJoined="50+ Joined"
         />
         <CampSite
-          backgroundImage="bg-bg-img-1"
-          title="Putuk Truno Camp"
-          subtitle="Prigen, Pasuruan"
-          peopleJoined="50+ Joined"
+          backgroundImage="bg-bg-img-2"
+          title="Mountain View Camp"
+          subtitle="Somewhere in the Wilderness"
+          peopleJoined="100+ Joined"
         />
+      </div>
+
+      <div className="flexEnd mt-10 px-6 lg:-mt-60 lg:mr-6">
+        <div className=" relative w-full rounded-3xl overflow-hidden bg-green-50 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 ">
+          <h2 className="regular-24 md:regulat-32 2xl:regulat-64 capitalize text-white">
+            <strong>Feeling Lost</strong> And Not Knowing The Way?
+          </h2>
+          <p className="text-white regular-14 xl:regular-16 mt-5">
+            Starting from the anxiety of the climbers when visiting a new
+            climbing location, the possibility of getting lost is very large.
+            That's why we are here for those of you who want to start an
+            adventure
+          </p>
+          <Image
+            src="/quote.svg"
+            alt="quote"
+            width={186}
+            height={219}
+            className="camp-quote"
+          />
+        </div>
       </div>
     </section>
   );
